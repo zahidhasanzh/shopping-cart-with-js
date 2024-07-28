@@ -33,6 +33,8 @@ let shopItemData = [
     }
 ]
 
+let basket = [];
+
 let generateShop = () => {
     return (shop.innerHTML = shopItemData.map((item) => {
         let {id, name, price, desc, img} = item
@@ -45,9 +47,9 @@ let generateShop = () => {
                 <div class="price-quantity">
                     <h2>$ ${price}</h2>
                     <div class="buttons">
-                        <i class="bi bi-dash-lg"></i>
-                        <div class="quantity">0</div>
-                        <i class="bi bi-plus-lg"></i>
+                        <i onclick="decrement(${id})"  class="bi bi-dash-lg"></i>
+                        <div id=${id} class="quantity">0</div>
+                        <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                     </div>
                 </div>
             </div>
@@ -56,4 +58,25 @@ let generateShop = () => {
     }).join(""))
 }
 
-generateShop()
+generateShop();
+
+let increment = (id) => {
+    let selectedItem = id;
+    let search = basket.find((item)=> item.id === selectedItem.id)
+    
+    if(search === undefined){
+        basket.push({
+            id: selectedItem.id,
+            item: 1,
+        })
+    }else{
+        search.item += 1;
+    }
+   
+    console.log(basket);
+};
+let decrement = (id) => {
+    let selectedItem = id;
+    console.log(selectedItem.id);
+};
+let update = () => {};
