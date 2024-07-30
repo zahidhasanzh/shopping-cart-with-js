@@ -73,26 +73,30 @@ let increment = (id) => {
     }else{
         search.item += 1;
     }
-
-    localStorage.setItem("data", JSON.stringify(basket))
    
     // console.log(basket);
     update(selectedItem.id)
+
+    localStorage.setItem("data", JSON.stringify(basket))
 };
 let decrement = (id) => {
     let selectedItem = id;
     let search = basket.find((item)=> item.id === selectedItem.id)
     
-    if(search.item === 0) return; 
+    if(search === undefined) return;
+
+    else if(search.item === 0) return; 
+
     else{
         search.item -= 1;
     }
 
     // console.log(basket);
+    update(selectedItem.id)
+
+    basket = basket.filter((x) => x.item !==0)
 
     localStorage.setItem("data", JSON.stringify(basket))
-
-    update(selectedItem.id)
 };
 let update = (id) => { 
     let search = basket.find((x)=> x.id === id)
