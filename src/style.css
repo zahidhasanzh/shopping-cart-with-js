@@ -97,7 +97,7 @@ i{
     text-align: center;
     margin-bottom: 20px;
 }
-.HomeBtn{
+.HomeBtn, .checkOut, .removeAll{
     background-color: #212529;
     color: white;
     border: none;
@@ -105,6 +105,12 @@ i{
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
+}
+.checkOut{
+    background-color: green;
+}
+.removeAll{
+    background-color: red;
 }
 .bi-x-lg{
     color: red;
@@ -143,3 +149,4 @@ i{
     padding: 3px 6px;
     border-radius: 4px;
 }
+
